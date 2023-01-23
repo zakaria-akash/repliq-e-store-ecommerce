@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Link from "next/link";
 
@@ -79,7 +80,11 @@ const MainHeader = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" href="/">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                href="/sign-in"
+              >
                 Sign In
               </Link>
             </li>

@@ -17,7 +17,7 @@ const MainFooter = () => {
                   <Link href="/">Admin</Link>
                 </li>
                 <li>
-                  <Link href="/">Sign In</Link>
+                  <Link href="/sign-in">Sign In</Link>
                 </li>
                 <li>
                   <Link href="/">Contact</Link>
