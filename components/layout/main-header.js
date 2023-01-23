@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const MainHeader = () => {
   return (
@@ -7,9 +8,9 @@ const MainHeader = () => {
       style={{ height: 80 }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand fs-3" href="#">
+        <Link className="navbar-brand fs-3" href="/">
           REPLIQ
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -39,48 +40,48 @@ const MainHeader = () => {
                 aria-labelledby="navbarDropdown"
               >
                 <li>
-                  <a
+                  <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="#"
+                    href="/"
                   >
                     Men's Dresses
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="#"
+                    href="/"
                   >
                     Women's Wears
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="#"
+                    href="/"
                   >
                     Jewelery
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="#"
+                    href="/"
                   >
                     Electronics
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link className="nav-link active" aria-current="page" href="/">
                 Admin
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Account
-              </a>
+              <Link className="nav-link active" aria-current="page" href="/">
+                Sign In
+              </Link>
             </li>
           </ul>
           <form className="d-flex">
