@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { Fragment } from "react";
 import Link from "next/link";
+import Image from "next/legacy/image";
 
 const MainHeader = () => {
   return (
@@ -10,7 +11,7 @@ const MainHeader = () => {
     >
       <div className="container-fluid">
         <Link className="navbar-brand fs-3" href="/">
-          REPLIQ
+          <img src="/images/logo.jpg" alt="logo" width="50" height="50" />
         </Link>
         <button
           className="navbar-toggler"
@@ -23,7 +24,10 @@ const MainHeader = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div
+          className="collapse navbar-collapse bg-info ps-2 pb-3"
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item dropdown">
               <a
@@ -43,7 +47,7 @@ const MainHeader = () => {
                 <li>
                   <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="/"
+                    href="/mensclothings"
                   >
                     Men's Dresses
                   </Link>
@@ -51,7 +55,7 @@ const MainHeader = () => {
                 <li>
                   <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="/"
+                    href="/womensclothings"
                   >
                     Women's Wears
                   </Link>
@@ -59,7 +63,7 @@ const MainHeader = () => {
                 <li>
                   <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="/"
+                    href="/jewelery"
                   >
                     Jewelery
                   </Link>
@@ -67,7 +71,7 @@ const MainHeader = () => {
                 <li>
                   <Link
                     className="dropdown-item border-bottom border-dark"
-                    href="/"
+                    href="/electronics"
                   >
                     Electronics
                   </Link>
@@ -96,7 +100,10 @@ const MainHeader = () => {
               placeholder="Search"
               aria-label="Search"
             />
-            <button className="btn btn-outline-success" type="submit">
+            <button
+              className="btn btn-outline-success text-dark text-bold"
+              type="submit"
+            >
               Search
             </button>
           </form>

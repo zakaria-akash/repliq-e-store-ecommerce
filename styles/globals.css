@@ -18,6 +18,14 @@ h1 {
   font-size: 60px;
   color: #0ccac4;
 }
+.category-title {
+  font-family: "Bigelow Rules", cursive;
+  font-size: 48px;
+  color: #0ccac4;
+}
+.center {
+  margin: 0 auto;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

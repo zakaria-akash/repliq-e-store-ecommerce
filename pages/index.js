@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/legacy/image";
+import Link from "next/link";
 import React, { Fragment } from "react";
 
 const Homepage = () => {
@@ -14,7 +15,7 @@ const Homepage = () => {
           </p>
         </div>
       </div>
-      <div className="row container mt-5 mb-5 ms-auto me-auto">
+      <div className="container mt-5 mb-5 ms-auto me-auto">
         <div className="row">
           <div className="card col-md-3 m-auto pt-3 bg-transparent border-0">
             <Image
@@ -34,9 +35,12 @@ const Homepage = () => {
                 the bulk of the card content.
               </p>
               <div className="d-grid">
-                <a href="#" className="btn btn-lg btn-primary fw-bold">
+                <Link
+                  href="/mensclothings"
+                  className="btn btn-lg btn-primary fw-bold"
+                >
                   GO
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -58,9 +62,12 @@ const Homepage = () => {
                 the bulk of the card content.
               </p>
               <div className="d-grid">
-                <a href="#" className="btn btn-lg btn-primary fw-bold">
+                <Link
+                  href="/womensclothings"
+                  className="btn btn-lg btn-primary fw-bold"
+                >
                   GO
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -82,9 +89,12 @@ const Homepage = () => {
                 the bulk of the card content.
               </p>
               <div className="d-grid">
-                <a href="#" className="btn btn-lg btn-primary fw-bold">
+                <Link
+                  href="/jewelery"
+                  className="btn btn-lg btn-primary fw-bold"
+                >
                   GO
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -106,9 +116,12 @@ const Homepage = () => {
                 the bulk of the card content.
               </p>
               <div className="d-grid">
-                <a href="#" className="btn btn-lg btn-primary fw-bold">
+                <Link
+                  href="/electronics"
+                  className="btn btn-lg btn-primary fw-bold"
+                >
                   GO
-                </a>
+                </Link>
               </div>
             </div>
           </div>

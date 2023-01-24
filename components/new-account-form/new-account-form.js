@@ -33,7 +33,7 @@ const NewAccountForm = () => {
   return (
     <Fragment>
       <Button className="new-account-button" onClick={showModal}>
-        <FormOutlined /> New Account Form
+        <FormOutlined /> Create New Account
       </Button>
       <Modal open={modalStatus} onOk={form.submit} onCancel={handleCancel}>
         <Form
@@ -52,7 +52,7 @@ const NewAccountForm = () => {
           }}
         >
           <center>
-            <h4>Create New Account</h4>
+            <h4>Open A New Account</h4>
           </center>
           <Form.Item // Form Item (Product Name)
             label="First Name"
