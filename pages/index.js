@@ -6,13 +6,24 @@ import React, { Fragment } from "react";
 const Homepage = () => {
   return (
     <Fragment>
-      <div className="container mt-3">
-        <div className="mt-4 p-5 bg-primary text-white rounded">
-          <h1>REPLIQ E-MART</h1>
-          <p>
-            We are a team of passionate designers and developers who love
-            building great digital products and experiences.
-          </p>
+      <div className="container mt-3 rounded bg-transparent">
+        <div className="row d-flex align-items-center border-bottom border-3 border-info">
+          <div className="col-sm-12 col-md-8 mt-4 p-5 text-white">
+            <h1>REPLIQ E-MART</h1>
+            <p>
+              We are a team of passionate designers and developers who love
+              building great digital products and experiences.
+            </p>
+          </div>
+          <div className="col-sm-12 col-md-4 mt-4 p-5 text-white">
+            <Image
+              src="/images/logo.jpg"
+              alt="logo"
+              width="100"
+              height="100"
+              layout="responsive"
+            />
+          </div>
         </div>
       </div>
       <div className="container mt-5 mb-5 ms-auto me-auto">

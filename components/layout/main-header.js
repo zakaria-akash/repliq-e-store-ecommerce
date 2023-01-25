@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import React, { Fragment } from "react";
 import Link from "next/link";
@@ -79,7 +80,11 @@ const MainHeader = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" href="/">
+              <Link
+                className="nav-link active"
+                aria-current="page"
+                href="/admin-panel"
+              >
                 Admin
               </Link>
             </li>

@@ -1,12 +1,20 @@
 import { Button, Modal, Form, Input } from "antd";
-import { EditOutlined } from "@ant-design/icons";
+import {
+  DeleteTwoTone,
+  EditOutlined,
+  WarningFilled,
+  WarningTwoTone,
+} from "@ant-design/icons";
+import { Typography } from "antd";
+const { Title } = Typography;
 import React, { useState } from "react";
 import classes from "./product-card-admin.module.css";
 import Image from "next/legacy/image";
 
 export const CardAdmin = (props) => {
   const { product } = props;
-  const [modalStatus, setModalStatus] = useState(false);
+  const [updateModalStatus, setUpdateModalStatus] = useState(false);
+  const [deleteModalStatus, setDeleteModalStatus] = useState(false);
   const [updatedProductInfo, setUpdatedProductInfo] = useState({
     title: "",
     price: "",
@@ -15,10 +23,23 @@ export const CardAdmin = (props) => {
     category: "",
   });
   const [form] = Form.useForm();
-  const showModal = () => {
-    setModalStatus(true);
+  const showUpdateModal = () => {
+    setUpdateModalStatus(true);
   };
 
+  const showDeleteModal = () => {
+    setDeleteModalStatus(true);
+  };
+
+  const handleDelete = () => {
+    fetch(`https://fakestoreapi.com/products/${product.id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((json) => console.log(json));
+
+    setDeleteModalStatus(false);
+  };
   const handleSubmit = (values) => {
     setUpdatedProductInfo({
       title: values.productName,
@@ -35,16 +56,20 @@ export const CardAdmin = (props) => {
       .then((json) => console.log(json));
     console.log(values);
     form.resetFields();
-    setModalStatus(false);
+    setUpdateModalStatus(false);
   };
 
-  const handleCancel = () => {
-    setModalStatus(false);
+  const handleUpdateCancel = () => {
+    setUpdateModalStatus(false);
     form.resetFields();
+  };
+  const handleDeleteModalCancel = () => {
+    setDeleteModalStatus(false);
   };
   return (
     <div
       className={`card col-md-3 bg-transparent text-info ${classes.cardContainer}`}
+      style={{ height: 650 }}
     >
       <Image
         loader={() => product.image}
@@ -61,11 +86,23 @@ export const CardAdmin = (props) => {
       <p>
         Rating: {product.rating.rate} ({product.rating.count})
       </p>
-      <Button onClick={showModal}>
-        <EditOutlined />
-        Update
+      <Button
+        onClick={showUpdateModal}
+        style={{ margin: 5, padding: 2, width: "100%" }}
+      >
+        <EditOutlined style={{ fontSize: "200%" }} />
       </Button>
-      <Modal open={modalStatus} onOk={form.submit} onCancel={handleCancel}>
+      <Button
+        onClick={showDeleteModal}
+        style={{ margin: 5, padding: 2, width: "100%" }}
+      >
+        <DeleteTwoTone style={{ fontSize: "200%" }} />
+      </Button>
+      <Modal
+        open={updateModalStatus}
+        onOk={form.submit}
+        onCancel={handleUpdateCancel}
+      >
         <Form
           form={form}
           onFinish={handleSubmit}
@@ -162,6 +199,51 @@ export const CardAdmin = (props) => {
             <Button type="primary">Submit</Button>
           </Form.Item>
         </Form>
+      </Modal>
+      <Modal
+        open={deleteModalStatus}
+        onOk={handleDelete}
+        onCancel={handleDeleteModalCancel}
+      >
+        <div className="container">
+          <div className="row m-2">
+            <div
+              className="alert alert-warning alert-dismissible fade show col-sm-12"
+              role="alert"
+            >
+              <strong>
+                WARNING!{" "}
+                <WarningFilled style={{ fontSize: "200%", color: "orrange" }} />{" "}
+              </strong>{" "}
+              This following product will be deleted:
+            </div>
+            <div className="card col-sm-12 border border-warning">
+              <Image
+                loader={() => product.image}
+                alt={`${product.title}`}
+                src={product.image}
+                width={250}
+                height={300}
+                layout="responsive"
+              />
+              <div className="card-body">
+                <h5 className="card-title">{product.title}</h5>
+                <p className="card-text">
+                  {product.description.slice(0, 80)}...
+                </p>
+              </div>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                  Category: {product.category}
+                </li>
+                <li className="list-group-item">Price: ${product.price}</li>
+                <li className="list-group-item">
+                  Rating: {product.rating.rate} ({product.rating.count})
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </Modal>
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Head from "next/head";
 import React, { Fragment, useEffect, useState } from "react";
 import { CardList } from "../../components/card-list/card-list.component";

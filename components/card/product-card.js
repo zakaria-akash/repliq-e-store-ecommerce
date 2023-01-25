@@ -3,7 +3,6 @@
 import { Button, Modal, Form, Input } from "antd";
 import { Typography } from "antd";
 const { Title } = Typography;
-import { SnippetsTwoTone } from "@ant-design/icons";
 import React, { useState } from "react";
 import classes from "./product-card.module.css";
 import Image from "next/legacy/image";
@@ -21,6 +20,7 @@ export const Card = (props) => {
   return (
     <div
       className={`card col-md-3 bg-transparent text-info ${classes.cardContainer}`}
+      style={{ height: 550 }}
     >
       <Image
         loader={() => product.image}
@@ -36,21 +36,21 @@ export const Card = (props) => {
       <p>
         Rating: {product.rating.rate} ({product.rating.count})
       </p>
-      <button class="btn btn-success text-uppercase mr-2 px-4">
+      <button className="btn btn-success text-uppercase mr-2 px-4">
         Add to cart
       </button>
       <Button onClick={showModal}>
         <Title level={5}>DETAILS</Title>
       </Button>
       <Modal open={modalStatus} onOk={handleCancel} onCancel={handleCancel}>
-        <div class="container m-0 p-0">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-12">
-              <div class="card border-0">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="images p-0">
-                      <div class="text-center p-2">
+        <div className="container m-0 p-0">
+          <div className="row d-flex justify-content-center">
+            <div className="col-md-12">
+              <div className="card border-0">
+                <div className="row">
+                  <div className="col-md-6">
+                    <div className="images p-0">
+                      <div className="text-center p-2">
                         {" "}
                         <Image
                           loader={() => product.image}
@@ -66,21 +66,26 @@ export const Card = (props) => {
                       <p>{product.description}</p>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="p-4">
-                      <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex align-items-center">
+                  <div className="col-md-6">
+                    <div className="p-4">
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex align-items-center">
                           {" "}
-                          <i class="fa fa-long-arrow-left"></i>{" "}
-                          <span class="ml-1">Back</span>{" "}
+                          <i className="fa fa-long-arrow-left"></i>{" "}
+                          <span className="ml-1">Back</span>{" "}
                         </div>{" "}
-                        <i class="fa fa-shopping-cart text-muted"></i>
+                        <i
+                          className="fa fa-shopping-cart text-muted"
+                          style={{ fontSize: "150%" }}
+                        ></i>
                       </div>
-                      <div class="mt-4 mb-3">
+                      <div className="mt-4 mb-3">
                         {" "}
-                        <span class="text-uppercase text-muted">REPLIQ</span>
-                        <h5 class="text-uppercase">{product.title}</h5>
-                        <div class="price d-flex flex-row align-items-center">
+                        <span className="text-uppercase text-muted">
+                          REPLIQ
+                        </span>
+                        <h5 className="text-uppercase">{product.title}</h5>
+                        <div className="price d-flex flex-row align-items-center">
                           {" "}
                           <span>Price: ${product.price}</span>
                         </div>
@@ -89,41 +94,42 @@ export const Card = (props) => {
                       <p>
                         Rating: {product.rating.rate} ({product.rating.count})
                       </p>
-                      <div class="mt-5">
-                        <h6 class="text-uppercase">Size</h6>{" "}
-                        <label class="radio">
+                      <div className="mt-5">
+                        <h6 className="text-uppercase">Size</h6>{" "}
+                        <label className="radio">
                           {" "}
                           <input
                             type="radio"
                             name="size"
                             value="S"
                             checked
+                            onChange={(e) => {}}
                           />{" "}
                           <span>S</span>{" "}
                         </label>{" "}
-                        <label class="radio">
+                        <label className="radio">
                           {" "}
                           <input type="radio" name="size" value="M" />{" "}
                           <span>M</span>{" "}
                         </label>{" "}
-                        <label class="radio">
+                        <label className="radio">
                           {" "}
                           <input type="radio" name="size" value="L" />{" "}
                           <span>L</span>{" "}
                         </label>{" "}
-                        <label class="radio">
+                        <label className="radio">
                           {" "}
                           <input type="radio" name="size" value="XL" />{" "}
                           <span>XL</span>{" "}
                         </label>{" "}
-                        <label class="radio">
+                        <label className="radio">
                           {" "}
                           <input type="radio" name="size" value="XXL" />{" "}
                           <span>XXL</span>{" "}
                         </label>
                       </div>
                       <select
-                        class="form-select mt-3"
+                        className="form-select mt-3"
                         aria-label="Default select example"
                       >
                         <option selected>Quantity</option>
@@ -138,14 +144,14 @@ export const Card = (props) => {
                         <option value="9">9</option>
                         <option value="10">10</option>
                       </select>
-                      <div class="mt-4 align-items-center">
+                      <div className="mt-4 align-items-center">
                         {" "}
                         <button class="btn btn-success text-uppercase mr-2 px-4">
                           Add to cart
                         </button>{" "}
                       </div>
-                      <i class="fa fa-heart text-muted fa-lg"></i>{" "}
-                      <i class="fa fa-share-alt text-muted fa-lg"></i>{" "}
+                      <i className="fa fa-heart text-muted fa-lg"></i>{" "}
+                      <i className="fa fa-share-alt text-muted fa-lg"></i>{" "}
                     </div>
                   </div>
                 </div>
