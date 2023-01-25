@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-import { Button, Modal, Form, Input } from "antd";
+import { Button, Modal } from "antd";
 import { Typography } from "antd";
 const { Title } = Typography;
 import React, { useState } from "react";
@@ -19,7 +19,7 @@ export const Card = (props) => {
   };
   return (
     <div
-      className={`card col-md-3 bg-transparent text-info ${classes.cardContainer}`}
+      className={`card col-sm-6 col-md-3 bg-transparent text-info ${classes.cardContainer}`}
       style={{ height: 550 }}
     >
       <Image

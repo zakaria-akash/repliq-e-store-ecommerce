@@ -1,12 +1,5 @@
 import { Button, Modal, Form, Input } from "antd";
-import {
-  DeleteTwoTone,
-  EditOutlined,
-  WarningFilled,
-  WarningTwoTone,
-} from "@ant-design/icons";
-import { Typography } from "antd";
-const { Title } = Typography;
+import { DeleteTwoTone, EditOutlined, WarningFilled } from "@ant-design/icons";
 import React, { useState } from "react";
 import classes from "./product-card-admin.module.css";
 import Image from "next/legacy/image";
@@ -68,7 +61,7 @@ export const CardAdmin = (props) => {
   };
   return (
     <div
-      className={`card col-md-3 bg-transparent text-info ${classes.cardContainer}`}
+      className={`card col-sm-6 col-md-3 bg-transparent text-info ${classes.cardContainer}`}
       style={{ height: 650 }}
     >
       <Image
@@ -106,7 +99,7 @@ export const CardAdmin = (props) => {
         <Form
           form={form}
           onFinish={handleSubmit}
-          name="contact-us"
+          name="product-update"
           layout="vertical"
           wrapperCol={{
             span: 20,
