@@ -1,10 +1,10 @@
 import { Button, Modal, Form, Input } from "antd";
 import { EditOutlined } from "@ant-design/icons";
 import React, { useState } from "react";
-import classes from "./card.component.module.css";
+import classes from "./product-card-admin.module.css";
 import Image from "next/legacy/image";
 
-export const Card = (props) => {
+export const CardAdmin = (props) => {
   const { product } = props;
   const [modalStatus, setModalStatus] = useState(false);
   const [updatedProductInfo, setUpdatedProductInfo] = useState({
