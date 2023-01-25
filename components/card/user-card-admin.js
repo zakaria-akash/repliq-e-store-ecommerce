@@ -60,7 +60,6 @@ export const CardUser = (props) => {
       style={{ height: 600 }}
     >
       <Image
-        loader={() => user.image}
         alt={`${user.firstName}${user.lastName}`}
         src={user.image}
         width={250}
@@ -221,7 +220,6 @@ export const CardUser = (props) => {
             </div>
             <div className="card col-sm-12 border border-warning">
               <Image
-                loader={() => user.image}
                 alt={`${user.firstName}${user.lastName}`}
                 src={user.image}
                 width={250}
