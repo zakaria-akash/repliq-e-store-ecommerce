@@ -3,7 +3,7 @@ import NewAccountForm from "../new-account-form/new-account-form";
 
 const SignInComponent = () => {
   return (
-    <form className="bg-transparent fs-3">
+    <form className="bg-transparent fs-3 fw-bold text-dark">
       {/* Email input */}
       <div className="form-outline mb-4">
         <input
@@ -63,23 +63,32 @@ const SignInComponent = () => {
 
       {/* Register buttons */}
       <div className="text-center">
-        <p>Not a member?</p>
+        <p className="mb-0 pb-0">Not a member?</p>
         <NewAccountForm />
         <p>or sign up with:</p>
-        <button type="button" className="btn btn-link btn-floating mx-1">
-          <i className="fa fa-facebook"></i>
+        <button
+          type="button"
+          className="btn btn-link btn-floating mx-1 bg-info"
+        >
+          <i className="fa fa-facebook" style={{ fontSize: "250%" }}></i>
         </button>
 
         <button type="button" className="btn btn-link btn-floating mx-1">
-          <i className="fa fa-google"></i>
+          <i
+            className="fa fa-google"
+            style={{ fontSize: "250%", color: "#44a6c6" }}
+          ></i>
         </button>
 
         <button type="button" className="btn btn-link btn-floating mx-1">
-          <i className="fa fa-linkedin"></i>
+          <i className="fa fa-linkedin" style={{ fontSize: "300%" }}></i>
         </button>
 
         <button type="button" className="btn btn-link btn-floating mx-1">
-          <i className="fa fa-github"></i>
+          <i
+            className="fa fa-github fa-fill"
+            style={{ fontSize: "300%", color: "#111" }}
+          ></i>
         </button>
       </div>
     </form>

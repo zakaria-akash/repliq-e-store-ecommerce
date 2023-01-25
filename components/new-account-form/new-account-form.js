@@ -1,5 +1,5 @@
-import { Button, Modal, Form, Input } from "antd";
-import { FormOutlined } from "@ant-design/icons";
+import { Button, Modal, Form, Input, Upload } from "antd";
+import { FormOutlined, UploadOutlined } from "@ant-design/icons";
 import { Fragment, useState } from "react";
 
 import "./new-account-form.module.css";
@@ -32,7 +32,16 @@ const NewAccountForm = () => {
 
   return (
     <Fragment>
-      <Button className="new-account-button" onClick={showModal}>
+      <Button
+        className="new-account-button"
+        onClick={showModal}
+        style={{
+          fontSize: "26px",
+          fontWeight: "bold",
+          width: 350,
+          height: 80,
+        }}
+      >
         <FormOutlined /> Create New Account
       </Button>
       <Modal open={modalStatus} onOk={form.submit} onCancel={handleCancel}>
@@ -54,7 +63,7 @@ const NewAccountForm = () => {
           <center>
             <h4>Open A New Account</h4>
           </center>
-          <Form.Item // Form Item (Product Name)
+          <Form.Item // Form Item (Client First Name)
             label="First Name"
             name="firstName"
             required
@@ -68,7 +77,7 @@ const NewAccountForm = () => {
           >
             <Input type="string" placeholder="First Name" />
           </Form.Item>
-          <Form.Item // Form Item (Product Name)
+          <Form.Item // Form Item (Client Last Name)
             label="Last Name"
             name="lastName"
             required
@@ -82,7 +91,7 @@ const NewAccountForm = () => {
           >
             <Input type="string" placeholder="Last Name" />
           </Form.Item>
-          <Form.Item // Form Item (Product Name)
+          <Form.Item // Form Item (Client Email)
             label="Email Address"
             name="email"
             required
@@ -96,7 +105,39 @@ const NewAccountForm = () => {
           >
             <Input type="string" placeholder="Email Address" />
           </Form.Item>
-          <Form.Item // Form Item (Product Name)
+          <Form.Item // Form Item (Image Upload)
+            label="Image Upload"
+            name="imageUpload"
+            tooltip="This is an optional field"
+            rules={[
+              {
+                required: false,
+                message: "Please upload your photo",
+              },
+            ]}
+          >
+            <Upload>
+              <Button icon={<UploadOutlined />}>Click to Upload</Button>
+            </Upload>
+          </Form.Item>
+          <Form.Item // Form Item (Client Address)
+            label="Address"
+            name="address"
+            required
+            tooltip="This is a required field"
+            rules={[
+              {
+                required: true,
+                message: "Address is a required field!",
+              },
+            ]}
+          >
+            <Input.TextArea
+              placeholder="Type your detail address ..."
+              autoSize={{ minRows: 2, maxRows: 4 }}
+            />
+          </Form.Item>
+          <Form.Item // Form Item (Password)
             label="Password"
             name="password"
             required
@@ -110,7 +151,7 @@ const NewAccountForm = () => {
           >
             <Input type="password" placeholder="Password" />
           </Form.Item>
-          <Form.Item // Form Item (Product Name)
+          <Form.Item // Form Item (Confirm Password)
             label="Confirm Password"
             name="confirmPassword"
             required
