@@ -11,7 +11,7 @@ const MensClothings = () => {
       .then((res) => res.json())
       .then((items) => setLoadedProducts(items));
   }, []);
-  let headTagForThisComponent = (
+  let headTagForThisPage = (
     <Head>
       <title>REPLIQ || Category-Men</title>
       <meta name="description" content="REPLIQ || Category-Men" />
@@ -21,7 +21,7 @@ const MensClothings = () => {
   if (!loadedProducts) {
     return (
       <div>
-        {headTagForThisComponent}
+        {headTagForThisPage}
         <h3 className="center">Loading...</h3>
       </div>
     );
@@ -29,7 +29,7 @@ const MensClothings = () => {
 
   return (
     <Fragment>
-      {headTagForThisComponent}
+      {headTagForThisPage}
       <div className="container mt-2 mb-0">
         <div className="row">
           <div className="category-title col-sm-12 text-center">
