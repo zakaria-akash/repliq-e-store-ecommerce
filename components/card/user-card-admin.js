@@ -246,7 +246,9 @@ export const CardUser = (props) => {
                   Odered Items: {user.oderedItems}
                 </li>
                 <li className="list-group-item d-flex">
-                  <button class="btn btn-success m-0">Show Odered Items</button>
+                  <button className="btn btn-success m-0">
+                    Show Odered Items
+                  </button>
                 </li>
               </ul>
             </div>

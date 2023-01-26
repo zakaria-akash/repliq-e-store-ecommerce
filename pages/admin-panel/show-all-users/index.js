@@ -19,10 +19,10 @@ const ShowAllUsers = (props) => {
       {headTagForThisPage}
       <div className="container mt-5 mb-5 ms-auto me-auto">
         <div className="row">
-          <div className="col-sm-12 text-center border border-3 border-info rounded-pill mb-3">
+          <div className="col-sm-12 text-center border border-3 border-info mb-3">
             <h1>Repliq E-STore Admin Panel</h1>
           </div>
-          <div className="category-title badge mb-0 pb-0 col-sm-12 text-center">
+          <div className="category-title mb-0 pb-0 col-sm-12 text-center">
             All Users List
           </div>
         </div>

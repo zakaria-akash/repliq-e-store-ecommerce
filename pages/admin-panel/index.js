@@ -15,7 +15,7 @@ const AdminPanel = () => {
       {headTagForThisPage}
       <div className="container mt-5 mb-5 ms-auto me-auto">
         <div className="row d-flex justify-content-center">
-          <div className="col-sm-12 text-center border border-3 border-info rounded-pill">
+          <div className="col-sm-12 text-center border border-3 border-info">
             <h1>Repliq E-STore Admin Panel</h1>
           </div>
           <div

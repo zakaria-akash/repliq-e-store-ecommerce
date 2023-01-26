@@ -132,7 +132,7 @@ export const Card = (props) => {
                         className="form-select mt-3"
                         aria-label="Default select example"
                       >
-                        <option selected>Quantity</option>
+                        <option defaultValue="Quantity">Quantity</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -146,7 +146,7 @@ export const Card = (props) => {
                       </select>
                       <div className="mt-4 align-items-center">
                         {" "}
-                        <button class="btn btn-success text-uppercase mr-2 px-4">
+                        <button className="btn btn-success text-uppercase mr-2 px-4">
                           Add to cart
                         </button>{" "}
                       </div>

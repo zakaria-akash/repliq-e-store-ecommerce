@@ -36,9 +36,9 @@ const NewAccountForm = () => {
         className="new-account-button"
         onClick={showModal}
         style={{
-          fontSize: "26px",
+          fontSize: "1.5rem",
           fontWeight: "bold",
-          width: 350,
+          width: 300,
           height: 80,
         }}
       >
@@ -103,22 +103,21 @@ const NewAccountForm = () => {
               },
             ]}
           >
-            <Input type="string" placeholder="Email Address" />
+            <Input type="email" placeholder="Email Address" />
           </Form.Item>
           <Form.Item // Form Item (Image Upload)
             label="Image Upload"
             name="imageUpload"
-            tooltip="This is an optional field"
+            required
+            tooltip="This is a required field"
             rules={[
               {
-                required: false,
+                required: true,
                 message: "Please upload your photo",
               },
             ]}
           >
-            <Upload>
-              <Button icon={<UploadOutlined />}>Click to Upload</Button>
-            </Upload>
+            <Input type="string" placeholder="Photo Link" />
           </Form.Item>
           <Form.Item // Form Item (Client Address)
             label="Address"
