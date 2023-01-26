@@ -88,51 +88,62 @@ const MainFooter = () => {
             <div className="col-12 col-sm-4 align-self-center">
               <div className="text-center">
                 <Link
-                  className="btn btn-social-icon btn-google"
+                  className="btn btn-social-icon btn-google mx-0 px-2"
                   href="https://google.com/"
+                  target="_blank"
                 >
                   <i
                     className="fa fa-google-plus"
-                    style={{ fontSize: "200%" }}
+                    style={{ fontSize: "200%", color: "	#FBF6E0" }}
                   ></i>
                 </Link>
                 <Link
-                  className="btn btn-social-icon btn-facebook"
+                  className="btn btn-social-icon btn-facebook bg-primary mx-auto px-3"
                   href="https://www.facebook.com/profile.php?id="
+                  target="_blank"
                 >
                   <i
                     className="fa fa-facebook"
-                    style={{ fontSize: "200%" }}
+                    style={{ fontSize: "150%", color: "white" }}
                   ></i>
                 </Link>
                 <Link
-                  className="btn btn-social-icon btn-linkedin"
+                  className="btn btn-social-icon btn-linkedin mx-auto px-2"
                   href="https://www.linkedin.com/in/"
+                  target="_blank"
                 >
                   <i
                     className="fa fa-linkedin"
-                    style={{ fontSize: "200%" }}
+                    style={{ fontSize: "200%", color: "blue" }}
                   ></i>
                 </Link>
                 <Link
-                  className="btn btn-social-icon btn-twitter"
+                  className="btn btn-social-icon btn-twitter mx-auto px-2"
                   href="https://twitter.com/"
+                  target="_blank"
                 >
-                  <i className="fa fa-twitter" style={{ fontSize: "200%" }}></i>
+                  <i
+                    className="fa fa-twitter"
+                    style={{ fontSize: "200%", color: "#ADD8E6" }}
+                  ></i>
                 </Link>
                 <Link
-                  className="btn btn-social-icon btn-google"
+                  className="btn btn-social-icon btn-google mx-auto px-2"
                   href="https://youtube.com/"
+                  target="_blank"
                 >
-                  <i className="fa fa-youtube" style={{ fontSize: "200%" }}></i>
+                  <i
+                    className="fa fa-youtube"
+                    style={{ fontSize: "200%", color: "#8B0000" }}
+                  ></i>
                 </Link>
                 <Link
-                  className="btn btn-social-icon"
+                  className="btn btn-social-icon mx-auto px-2"
                   href="mailto:jobs@repliq.dev"
                 >
                   <i
                     className="fa fa-envelope-o"
-                    style={{ fontSize: "200%" }}
+                    style={{ fontSize: "200%", color: " #034B03" }}
                   ></i>
                 </Link>
               </div>

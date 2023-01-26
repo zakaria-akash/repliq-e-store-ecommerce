@@ -11,7 +11,7 @@ const MainHeader = () => {
     <Fragment>
       <nav
         className="navbar navbar-expand-lg navbar-light bg-info fw-bold fs-3"
-        style={{ height: 80 }}
+        style={{ height: 80, zIndex: 1000 }}
       >
         <div className="container-fluid">
           <Link className="navbar-brand fs-3" href="/">
