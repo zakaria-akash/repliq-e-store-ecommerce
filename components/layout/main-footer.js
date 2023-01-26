@@ -48,14 +48,14 @@ const MainFooter = () => {
                 </li>
                 <li>
                   <Link
-                    href="/"
+                    href="/check-out"
                     style={{
                       textDecoration: "none",
                       color: "#0000FF",
                       fontWeight: "bold",
                     }}
                   >
-                    Contact
+                    Go CheckOut Page
                   </Link>
                 </li>
               </ul>

@@ -123,7 +123,7 @@ const MainHeader = () => {
                   setCartModalStatus(true);
                 }}
               >
-                <ShoppingCartOutlined style={{ fontSize: "3rem" }} />
+                <ShoppingCartOutlined style={{ fontSize: "2.5rem" }} />
               </button>
             </div>
           </div>
@@ -194,7 +194,7 @@ const MainHeader = () => {
             <Link
               type="button"
               className="btn btn-success btn-lg fw-bold"
-              href="/"
+              href="/check-out"
               onClick={() => {
                 setCartModalStatus(false);
               }}
