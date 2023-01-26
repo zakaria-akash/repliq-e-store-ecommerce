@@ -22,6 +22,7 @@ const Homepage = () => {
               width="100"
               height="100"
               layout="responsive"
+              style={{ zIndex: "-100" }}
             />
           </div>
         </div>

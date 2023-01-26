@@ -8,14 +8,7 @@ export const CardUser = (props) => {
   const { user } = props;
   const [updateModalStatus, setUpdateModalStatus] = useState(false);
   const [deleteModalStatus, setDeleteModalStatus] = useState(false);
-  const [updatedProductInfo, setUpdatedProductInfo] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    image: "",
-    address: "",
-    oderedItems: 0,
-  });
+  const [updatedUserInfo, setUpdatedUserInfo] = useState(null);
   const [form] = Form.useForm();
   const showUpdateModal = () => {
     setUpdateModalStatus(true);
@@ -29,20 +22,35 @@ export const CardUser = (props) => {
     setDeleteModalStatus(false);
   };
   const handleSubmit = (values) => {
-    setUpdatedProductInfo({
-      title: values.productName,
-      price: values.price,
-      description: values.description,
+    setUpdatedUserInfo({
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
       image: values.image,
-      category: values.productCategory,
+      address: values.address,
+      oderedItems: values.oderedItems,
     });
-    // fetch(`https://fakestoreapi.com/products/${product.id}`, {
+    // fetch(`https://repliq-e-store-default-rtdb.firebaseio.com/users/${user.id}`, {
     //   method: "PUT",
     //   body: JSON.stringify(updatedProductInfo),
     // })
     //   .then((res) => res.json())
     //   .then((json) => console.log(json));
-    console.log(updatedProductInfo);
+    console.log("Updated User Info with User ID: " + user.id);
+    alert(
+      "Successfully updated user info!\nFirst Name: " +
+        updatedUserInfo.firstName +
+        "\nLast Name: " +
+        updatedUserInfo.lastName +
+        "\nEmail: " +
+        updatedUserInfo.email +
+        "\nImage: " +
+        updatedUserInfo.image +
+        "\nAddress: " +
+        updatedUserInfo.address +
+        "\nOdered Items: " +
+        updatedUserInfo.oderedItems
+    );
     form.resetFields();
     setUpdateModalStatus(false);
   };
@@ -106,7 +114,7 @@ export const CardUser = (props) => {
           }}
         >
           <center>
-            <h4>Update User Info</h4>
+            <h4>Update User Info (User ID: {user.id})</h4>
           </center>
           <Form.Item // Form Item (First Name)
             label="First Name"
@@ -216,7 +224,7 @@ export const CardUser = (props) => {
                 WARNING!{" "}
                 <WarningFilled style={{ fontSize: "200%", color: "orrange" }} />{" "}
               </strong>{" "}
-              This following user info will be removed:
+              This following user info will be removed (User ID: {user.id}):
             </div>
             <div className="card col-sm-12 border border-warning">
               <Image
