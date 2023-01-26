@@ -1,11 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/legacy/image";
 import Link from "next/link";
+import Head from "next/head";
 import React, { Fragment } from "react";
 
 const Homepage = () => {
+  let headTagForThisPage = (
+    <Head>
+      <title>REPLIQ</title>
+      <meta name="description" content="REPLIQ || Home Page" />
+    </Head>
+  );
   return (
     <Fragment>
+      {headTagForThisPage}
       <div className="container mt-3 rounded bg-transparent">
         <div className="row d-flex align-items-center border-bottom border-3 border-info">
           <div className="col-sm-12 col-md-8 mt-4 p-5 text-white">

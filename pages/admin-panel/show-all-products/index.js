@@ -1,15 +1,19 @@
 import { Fragment, useEffect, useState } from "react";
-import { CardList } from "@/components/card-list/card-list.component";
 import { CardListAdmin } from "../../../components/card-list/card-list.admin.component";
+import Head from "next/head";
 
 const ShowAllProducts = () => {
   const [allProducts, setAllProducts] = useState([]);
-  // const fetchItems = async () => {
-  //   const data = await fetch("https://fakestoreapi.com/products");
-  //   const items = await data.json();
-  //   setAllProducts(items);
-  // };
 
+  let headTagForThisPage = (
+    <Head>
+      <title>All Products Admin</title>
+      <meta
+        name="description"
+        content="REPLIQ || All Products Admin Panel Page"
+      />
+    </Head>
+  );
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -18,6 +22,7 @@ const ShowAllProducts = () => {
 
   return (
     <Fragment>
+      {headTagForThisPage}
       <div className="container mt-5 mb-5 ms-auto me-auto">
         <div className="row">
           <div className="col-sm-12 text-center border border-3 border-info rounded-pill mb-3">

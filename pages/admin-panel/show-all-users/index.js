@@ -7,8 +7,16 @@ import { getAllUsers } from "@/backend-helpers/users-api-utils";
 const ShowAllUsers = (props) => {
   const allUsers = props.selectedUsers;
 
+  let headTagForThisPage = (
+    <Head>
+      <title>All Users Admin</title>
+      <meta name="description" content="REPLIQ || All Users Admin Panel Page" />
+    </Head>
+  );
+
   return (
     <Fragment>
+      {headTagForThisPage}
       <div className="container mt-5 mb-5 ms-auto me-auto">
         <div className="row">
           <div className="col-sm-12 text-center border border-3 border-info rounded-pill mb-3">
