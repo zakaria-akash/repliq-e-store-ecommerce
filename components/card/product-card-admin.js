@@ -112,7 +112,7 @@ export const CardAdmin = (props) => {
           }}
         >
           <center>
-            <h4>Product Details</h4>
+            <h4>Update Product Info (ID: {product.id})</h4>
           </center>
           <Form.Item // Form Item (Product Name)
             label="Product Name"
@@ -208,7 +208,7 @@ export const CardAdmin = (props) => {
                 WARNING!{" "}
                 <WarningFilled style={{ fontSize: "200%", color: "orrange" }} />{" "}
               </strong>{" "}
-              This following product will be deleted:
+              This following product will be removed (Product ID: {product.id}):
             </div>
             <div className="card col-sm-12 border border-warning">
               <Image

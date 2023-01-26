@@ -74,7 +74,7 @@ const NewProductForm = () => {
             }}
           >
             <center>
-              <h4>Product Details</h4>
+              <h4>New Product Info</h4>
             </center>
             <Form.Item // Form Item (Product Name)
               label="Product Name"

@@ -8,7 +8,7 @@ export const CardListUsers = (props) => {
   }
   return (
     <div className="container mt-5 mb-5 ms-auto me-auto">
-      <div className="row">
+      <div className="row d-flex justify-content-start align-items-center">
         {users.map((user) => (
           <CardUser key={user.id} user={user} />
         ))}
