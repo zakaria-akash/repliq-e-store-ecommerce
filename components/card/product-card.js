@@ -3,13 +3,17 @@
 import { Button, Modal } from "antd";
 import { Typography } from "antd";
 const { Title } = Typography;
-import React, { useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import classes from "./product-card.module.css";
 import Image from "next/legacy/image";
 
+import CartContext from "@/store/cart-context";
+
 export const Card = (props) => {
   const { product } = props;
+  const CartCtx = useContext(CartContext);
   const [modalStatus, setModalStatus] = useState(false);
+  const productQtityRef = useRef();
   const showModal = () => {
     setModalStatus(true);
   };
@@ -17,10 +21,23 @@ export const Card = (props) => {
   const handleCancel = () => {
     setModalStatus(false);
   };
+
+  const addToCartHandler = () => {
+    const enteredQuantity = productQtityRef.current.value;
+
+    const addTocartItemData = {
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      quantity: enteredQuantity,
+    };
+    CartCtx.addItemToCart(addTocartItemData);
+  };
   return (
     <div
       className={`card col-sm-6 col-md-3 bg-transparent text-info ${classes.cardContainer}`}
-      style={{ height: 550 }}
+      style={{ height: 520 }}
     >
       <Image
         loader={() => product.image}
@@ -36,11 +53,8 @@ export const Card = (props) => {
       <p>
         Rating: {product.rating.rate} ({product.rating.count})
       </p>
-      <button className="btn btn-success text-uppercase mr-2 px-4">
-        Add to cart
-      </button>
-      <Button onClick={showModal}>
-        <Title level={5}>DETAILS</Title>
+      <Button onClick={showModal} style={{ height: "3rem" }}>
+        <Title level={2}>DETAILS</Title>
       </Button>
       <Modal open={modalStatus} onOk={handleCancel} onCancel={handleCancel}>
         <div className="container m-0 p-0">
@@ -131,9 +145,12 @@ export const Card = (props) => {
                       <select
                         className="form-select mt-3"
                         aria-label="Default select example"
+                        ref={productQtityRef}
                       >
-                        <option defaultValue="Quantity">Quantity</option>
-                        <option value="1">1</option>
+                        {/* <option defaultValue="Quantity">
+                          Quantity
+                        </option> */}
+                        <option defaultValue="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -146,7 +163,10 @@ export const Card = (props) => {
                       </select>
                       <div className="mt-4 align-items-center">
                         {" "}
-                        <button className="btn btn-success text-uppercase mr-2 px-4">
+                        <button
+                          onClick={addToCartHandler}
+                          className="btn btn-success text-uppercase mr-2 px-4"
+                        >
                           Add to cart
                         </button>{" "}
                       </div>

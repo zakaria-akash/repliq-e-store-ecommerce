@@ -4,6 +4,7 @@ import React, { Fragment, useState } from "react";
 import Link from "next/link";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Modal } from "antd";
+import ProductCart from "../product-cart/product-cart.component";
 
 const MainHeader = () => {
   const [cartModalStatus, setCartModalStatus] = useState(false);
@@ -140,69 +141,7 @@ const MainHeader = () => {
         }}
         centered
       >
-        <div
-          className="modal-content border-0 mt-4 mx-auto mb-1"
-          style={{ backgroundColor: "#D3D3D3" }}
-        >
-          <div className="modal-header border-bottom-0">
-            <h5 className="modal-title category-title" id="exampleModalLabel">
-              Your Shopping Cart
-            </h5>
-          </div>
-          <div className="modal-body">
-            <table className="table table-image">
-              <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Product</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Total</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="w-25">
-                    <img
-                      src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/vans.png"
-                      className="img-fluid img-thumbnail"
-                      alt="Sheep"
-                    />
-                  </td>
-                  <td>Vans Sk8-Hi MTE Shoes</td>
-                  <td>$89</td>
-                  <td className="qty">
-                    <p className="text-center">2</p>
-                  </td>
-                  <td>$178</td>
-                  <td>
-                    <a href="#" className="btn btn-danger ">
-                      <i className="fa fa-times"></i>
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="d-flex justify-content-end">
-              <h5>
-                Total: <span className="text-success">$89</span>
-              </h5>
-            </div>
-          </div>
-          <div className="modal-footer border-top-0 d-flex justify-content-end">
-            <Link
-              type="button"
-              className="btn btn-success btn-lg fw-bold"
-              href="/check-out"
-              onClick={() => {
-                setCartModalStatus(false);
-              }}
-            >
-              Checkout
-            </Link>
-          </div>
-        </div>
+        <ProductCart />
       </Modal>
       {/* end cart modal */}
     </Fragment>
