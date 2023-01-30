@@ -5,10 +5,29 @@ const CartContext = createContext({
   cartItems: null,
   addItemToCart: (dataToAdd) => {},
   removeItemFromCart: (dataToRemove) => {},
+  cartNotification: null,
+  showCartNotification: (cartNotificationData) => {},
+  hideCartNotification: () => {},
 });
 
 export const CartContextProvider = (props) => {
   const [activeCartItems, setActiveCartItems] = useState([]);
+  const [activeCartNotification, setActiveCartNotification] = useState();
+
+  useEffect(() => {
+    if (
+      activeCartNotification &&
+      (activeCartNotification.status === "added" ||
+        activeCartNotification.status === "removed")
+    ) {
+      const timer = setTimeout(() => {
+        setActiveCartNotification(null);
+      }, 3000);
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [activeCartNotification]);
 
   const addItemToCartHandler = (dataToAdd) => {
     activeCartItems.map((item) => {
@@ -27,10 +46,21 @@ export const CartContextProvider = (props) => {
     );
   };
 
+  const showCartNotificationHandller = (cartNotificationData) => {
+    setActiveCartNotification(cartNotificationData);
+  };
+
+  const hideCartNotificationHandler = () => {
+    setActiveCartNotification(null);
+  };
+
   const context = {
     cartItems: activeCartItems,
     addItemToCart: addItemToCartHandler,
     removeItemFromCart: removeItemFromCartHandler,
+    cartNotification: activeCartNotification,
+    showCartNotification: showCartNotificationHandller,
+    hideCartNotification: hideCartNotificationHandler,
   };
   return (
     <CartContext.Provider value={context}>

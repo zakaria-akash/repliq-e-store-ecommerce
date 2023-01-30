@@ -13,7 +13,14 @@ const ProductCartItem = (props) => {
       price: product.price,
       quantity: product.quantity,
     };
+    const cartNotificationData = {
+      title: "removing...",
+      message: `${product.title} is removed from your shopping-cart`,
+      status: "removed",
+    };
+
     CartCtx.removeItemFromCart(removeFromcartItemData);
+    CartCtx.showCartNotification(cartNotificationData);
   };
   return (
     <tr key={product.id}>

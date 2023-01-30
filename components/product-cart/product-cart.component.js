@@ -3,9 +3,11 @@ import Link from "next/link";
 import React, { useContext } from "react";
 import ProductCartList from "./product-cart-list";
 import CartContext from "@/store/cart-context";
+import Notification from "./notification";
 
 const ProductCart = () => {
   const CartCtx = useContext(CartContext);
+  const activeNotification = CartCtx.cartNotification;
   return (
     <div
       className="modal-content border-0 mt-4 mx-auto mb-1"
@@ -31,6 +33,13 @@ const ProductCart = () => {
           Checkout
         </Link>
       </div>
+      {activeNotification && (
+        <Notification
+          title={activeNotification.title}
+          message={activeNotification.message}
+          status={activeNotification.status}
+        />
+      )}
     </div>
   );
 };
