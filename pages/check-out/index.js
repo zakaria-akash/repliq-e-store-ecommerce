@@ -1,8 +1,24 @@
+// Importing the Image component from the next/legacy/image library.
 import Image from "next/legacy/image";
+// Importing the Link component from the next/link library.
 import Link from "next/link";
+// Importing the React library.
 import React from "react";
+// Importing the useSelector hook from the react-redux library.
+import { useSelector } from "react-redux";
 
+// The CheckOut component.
 const CheckOut = () => {
+  // Getting the cart items from the Redux store.
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
+  // Calculating the total price of the items in the cart.
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+
+  // Returning the JSX for the component.
   return (
     <div className="container my-5 mx-auto">
       <div className="row m-0 p-0">
@@ -30,40 +46,27 @@ const CheckOut = () => {
           <div className="col-md-5 col-lg-4 order-md-last">
             <h4 className="d-flex justify-content-between align-items-center mb-3">
               <span className="text-primary">Your cart</span>
-              <span className="badge bg-primary rounded-pill">3</span>
+              {/* Displaying the number of items in the cart. */}
+              <span className="badge bg-primary rounded-pill">{cartItems.length}</span>
             </h4>
             <ul className="list-group mb-3">
-              <li className="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                  <h6 className="my-0">Product name</h6>
-                  <small className="text-muted">Brief description</small>
-                </div>
-                <span className="text-muted">$12</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                  <h6 className="my-0">Second product</h6>
-                  <small className="text-muted">Brief description</small>
-                </div>
-                <span className="text-muted">$8</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between lh-sm">
-                <div>
-                  <h6 className="my-0">Third item</h6>
-                  <small className="text-muted">Brief description</small>
-                </div>
-                <span className="text-muted">$5</span>
-              </li>
-              <li className="list-group-item d-flex justify-content-between bg-light">
-                <div className="text-success">
-                  <h6 className="my-0">Promo code</h6>
-                  <small>EXAMPLECODE</small>
-                </div>
-                <span className="text-success">−$5</span>
-              </li>
+              {/* Mapping over the cart items and displaying them in the cart summary. */}
+              {cartItems.map((item) => (
+                <li
+                  key={item.id}
+                  className="list-group-item d-flex justify-content-between lh-sm"
+                >
+                  <div>
+                    <h6 className="my-0">{item.title}</h6>
+                  </div>
+                  <span className="text-muted">${item.price}</span>
+                </li>
+              ))}
+
               <li className="list-group-item d-flex justify-content-between">
                 <span>Total (USD)</span>
-                <strong>$20</strong>
+                {/* Displaying the total price of the items in the cart. */}
+                <strong>${totalPrice}</strong>
               </li>
             </ul>
 
@@ -373,4 +376,5 @@ const CheckOut = () => {
   );
 };
 
+// Exporting the CheckOut component as the default export.
 export default CheckOut;

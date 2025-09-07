@@ -1,48 +1,79 @@
+// Disabling eslint rule for using img element.
 /* eslint-disable @next/next/no-img-element */
+// Disabling eslint rule for unescaped entities.
 /* eslint-disable react/no-unescaped-entities */
+// Importing the Button and Modal components from the antd library.
 import { Button, Modal } from "antd";
+// Importing the Typography component from the antd library.
 import { Typography } from "antd";
+// Destructuring the Title component from the Typography component.
 const { Title } = Typography;
-import React, { Fragment, useContext, useRef, useState } from "react";
+// Importing the React, Fragment, useRef, and useState hooks from the react library.
+import React, { Fragment, useRef, useState } from "react";
+// Importing the useDispatch and useSelector hooks from the react-redux library.
+import { useDispatch, useSelector } from "react-redux";
+// Importing the css module for the component.
 import classes from "./product-card.module.css";
+// Importing the Image component from the next/legacy/image library.
 import Image from "next/legacy/image";
 
-import CartContext from "@/store/cart-context";
+// Importing the addItemToCart and sendCartNotification action creators from the cartSlice.js file.
+import { addItemToCart, sendCartNotification } from "@/store/redux/cartSlice";
+// Importing the Notification component.
 import Notification from "../product-cart/notification";
 
+// The Card component.
 export const Card = (props) => {
+  // Destructuring the product object from the props.
   const { product } = props;
-  const CartCtx = useContext(CartContext);
+  // Getting the dispatch function from the useDispatch hook.
+  const dispatch = useDispatch();
+  // A state variable to control the modal status.
   const [modalStatus, setModalStatus] = useState(false);
+  // A ref to get the value of the product quantity input.
   const productQtityRef = useRef();
 
-  const activeNotification = CartCtx.cartNotification;
+  // Getting the active notification from the Redux store.
+  const activeNotification = useSelector((state) => state.cart.cartNotification);
+
+  // A function to show the modal.
   const showModal = () => {
     setModalStatus(true);
   };
 
+  // A function to handle the cancel event of the modal.
   const handleCancel = () => {
     setModalStatus(false);
   };
 
+  // A function to handle the add to cart button click event.
   const addToCartHandler = () => {
+    // Getting the entered quantity from the input ref.
     const enteredQuantity = productQtityRef.current.value;
 
+    // Creating the item data object to add to the cart.
     const addTocartItemData = {
       id: product.id,
       title: product.title,
       image: product.image,
       price: product.price,
-      quantity: enteredQuantity,
+      quantity: parseInt(enteredQuantity),
     };
+
+    // Creating the notification data object.
     const cartNotificationData = {
       title: "adding...",
       message: `${product.title} is added to your shopping-cart`,
       status: "added",
     };
-    CartCtx.addItemToCart(addTocartItemData);
-    CartCtx.showCartNotification(cartNotificationData);
+
+    // Dispatching the addItemToCart action with the item data as the payload.
+    dispatch(addItemToCart(addTocartItemData));
+    // Dispatching the sendCartNotification action with the notification data as the payload.
+    dispatch(sendCartNotification(cartNotificationData));
   };
+
+  // Returning the JSX for the component.
   return (
     <Fragment>
       <div
@@ -188,6 +219,7 @@ export const Card = (props) => {
                 </div>
               </div>
             </div>
+            {/* If there is an active notification, render the Notification component. */}
             {activeNotification && (
               <Notification
                 title={activeNotification.title}

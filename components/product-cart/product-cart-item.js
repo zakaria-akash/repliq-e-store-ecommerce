@@ -1,27 +1,35 @@
+// Disabling eslint rule for using img element.
 /* eslint-disable @next/next/no-img-element */
-import React, { useContext } from "react";
-import CartContext from "@/store/cart-context";
+// Importing the React library.
+import React from "react";
+// Importing the useDispatch hook from the react-redux library.
+import { useDispatch } from "react-redux";
+// Importing the removeItemFromCart and sendCartNotification action creators from the cartSlice.js file.
+import { removeItemFromCart, sendCartNotification } from "@/store/redux/cartSlice";
 
+// The ProductCartItem component.
 const ProductCartItem = (props) => {
+  // Destructuring the product object from the props.
   const { product } = props;
-  const CartCtx = useContext(CartContext);
+  // Getting the dispatch function from the useDispatch hook.
+  const dispatch = useDispatch();
+
+  // A function to handle the close button click event.
   const handleCloseButton = () => {
-    const removeFromcartItemData = {
-      id: product.id,
-      title: product.title,
-      image: product.image,
-      price: product.price,
-      quantity: product.quantity,
-    };
+    // Creating the notification data object.
     const cartNotificationData = {
       title: "removing...",
       message: `${product.title} is removed from your shopping-cart`,
       status: "removed",
     };
 
-    CartCtx.removeItemFromCart(removeFromcartItemData);
-    CartCtx.showCartNotification(cartNotificationData);
+    // Dispatching the removeItemFromCart action with the product id as the payload.
+    dispatch(removeItemFromCart(product.id));
+    // Dispatching the sendCartNotification action with the notification data as the payload.
+    dispatch(sendCartNotification(cartNotificationData));
   };
+
+  // Returning the JSX for the component.
   return (
     <tr key={product.id}>
       <td className="w-25">
@@ -47,4 +55,5 @@ const ProductCartItem = (props) => {
   );
 };
 
+// Exporting the ProductCartItem component as the default export.
 export default ProductCartItem;
